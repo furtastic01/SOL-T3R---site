@@ -1,0 +1,297 @@
+/* --- 1. Banner CSS (Continued from previous response) --- */
+
+#banner-container {
+    width: 100%;
+    height: 0; 
+    /* 10% padding-bottom for the 10:1 ratio */
+    padding-bottom: 10%; 
+    position: relative; 
+    margin: 0;
+}
+
+#banner-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* --- 2. Navigation Bar CSS (New Section) --- */
+
+#main-nav {
+    /* The slightly darker but still light yellow color */
+    background-color: #dfb718; /* A light, warm, slightly deeper yellow */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Ensure no margin is inherited */
+    width: 100%; /* Make sure it spans the full width */
+}
+
+#main-nav ul {
+    /* Use Flexbox on the <ul> to distribute the space */
+    display: flex; 
+    
+    /* Crucial: Distribute the space EVENLY between all children (the <li>s) */
+    justify-content: space-around; 
+    
+    /* Remove the default bullet points */
+    list-style: none; 
+    
+    /* Remove default list padding and margin */
+    padding: 0;
+    margin: 0;
+}
+
+#main-nav li {
+    /* Allow list items to grow to fill available space */
+    flex-grow: 1; 
+    
+    /* Center the text/link within each list item */
+    text-align: center;
+    
+    /* Give a little vertical spacing to the bar */
+    padding: 10px 0;
+    
+    /* Optional: Add a subtle separator line if desired */
+    border-right: 1px solid #e3b213; 
+}
+
+/* Remove the border from the very last item */
+#main-nav li:last-child {
+    border-right: none;
+}
+
+#main-nav a {
+    /* Style the actual link text */
+    text-decoration: none; /* Remove underline */
+    color: #333333;      /* Dark text color */
+    font-weight: bold;   /* Make the links stand out */
+    display: block;      /* Make the entire list item area clickable */
+    padding: 5px 0;      /* Add a little padding to the clickable area */
+}
+
+/* Hover effect for a nice touch */
+#main-nav a:hover {
+    background-color: #fad039; /* Slightly darker yellow on hover */
+    color: #000000;
+}
+body {
+    background-color: #0e3c99; /* Replace #1a2a4a with your specific dark blue hex code */
+}
+/* Styling for the main heading text (h1) */
+h1 {
+    /* Step 1: Set the background to the gradient */
+    background: linear-gradient(to right, #ffffff, #5ac8fa);
+    
+    /* Step 2: Clip the background to the text itself (standard property) */
+    -webkit-background-clip: text; 
+    
+    /* Step 3: Clip the background to the text itself (for broader compatibility) */
+    background-clip: text; 
+    
+    /* Step 4: Make the actual text transparent so the gradient shows through */
+    color: transparent; 
+    
+    /* Optional: Ensure the text is large and visible */
+    font-size: 3em; 
+    font-weight: bold;
+    text-align: center; /* Center the heading on the page */
+    padding-top: 5px; /* Add some space below the navigation bar */
+}
+/* Styling for the paragraph text (p) */
+p {
+    /* Step 1: Set the background to the three-color gradient */
+    background: linear-gradient(to right, #b7e4c7, #70e000, #f8f9fa);
+    
+    /* Step 2: Clip the background to the text itself */
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    
+    /* Step 3: Make the actual text transparent so the gradient shows through */
+    color: transparent; 
+    
+    /* Optional: Center the paragraph text */
+    text-align: center;
+    
+    /* Make the text slightly larger than default for visibility */
+    font-size: 1.6em;
+    
+    /* This adds a little bit of vertical padding/space between the h1 and the p tag */
+    padding: 10px 20px 20px 20px; 
+    
+    /* Optional: Set a max width so the paragraph doesn't stretch too wide */
+    max-width: 800px; 
+    margin-left: auto; /* Centers the paragraph block */
+    margin-right: auto;
+    font-weight: bold;
+}
+/* --- New/Revised CSS for the Releases Page Layout --- */
+
+#releases-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 30px 20px;
+    margin: 0;
+}
+
+.release-item {
+    /* Set the width of the whole item. This controls how many fit on one line. 
+     * Setting this to 300px ensures plenty of room for 2-3 items on a desktop,
+     * but only one on a small phone screen, fulfilling your requirement. */
+    width: 300px; 
+    
+    /* Center the contents within the item */
+    text-align: center;
+    
+    /* Margin around the item for visual separation */
+    margin: 20px; 
+    
+    /* Add a border around the entire release-item (image + text) */
+    border: 1px solid #e0c878; /* A subtle, complementary border color */
+    padding: 15px; /* Padding inside the border */
+    border-radius: 5px; /* Rounded corners for the border */
+}
+
+/* This targets the <a> tag which contains the image */
+.release-item a {
+    /* Display as a block to force the container to take the full width */
+    display: block;
+    
+    /* Crucial for square image sizing: 
+     * We use the padding-bottom trick to create a container that is always a square. 
+     * Height is 0, padding-bottom is 100% of the width. */
+    height: 0;
+    padding-bottom: 100%;
+    position: relative; /* Allows the image to be absolutely positioned inside */
+}
+
+.release-item img {
+    /* The image must fill the entire square container created by the <a> tag */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    
+    /* Crucial: object-fit makes the image fill the square container.
+     * 'cover' ensures the image covers the entire area without distortion,
+     * cropping any excess parts of the original image. 
+     * Use 'contain' if you want the whole image visible, with bars if necessary.
+     * I recommend 'cover' for a clean look. */
+    object-fit: cover; 
+    
+    /* Remove the border property from the previous code if you had it here */
+    border: none; 
+    border-radius: 0;
+    transition: transform 0.2s;
+}
+
+/* Updated paragraph styling to ensure it looks clean below the image */
+.release-item p {
+    /* Reuse your existing p tag styles (gradient, bold) but adjust layout */
+    font-size: 1.1em;
+    font-weight: bold; 
+    text-align: center; 
+    max-width: none; 
+    
+    /* Add a little space between the image border and the text */
+    margin: 10px 0 0 0; 
+    padding: 5px 0 0 0; 
+}
+/* --- New CSS for Individual Release Detail Pages (release-1.html) --- */
+
+#release-detail-content {
+    /* Set max width and center the main content area */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#release-info {
+    /* KEY: Float the box to the right */
+    float: right; 
+    
+    /* Set a specific width for the info box */
+    width: 300px; 
+    
+    /* Add space around the box so the text doesn't touch it */
+    margin: 0 0 20px 20px;
+    
+    /* Optional: Add a subtle border or background to make the box stand out */
+    border: 1px solid #e0c878;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.05); /* Very slight translucent background */
+    text-align: center; /* Center the image and tracklist */
+}
+
+#release-info img {
+    /* Make the image fill the width of the info box */
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #fce899; /* Use your yellow color */
+}
+
+/* Tracklist Styling */
+.tracklist {
+    text-align: left; /* Align text within the tracklist */
+    padding: 10px 0;
+}
+
+.tracklist h3 {
+    /* Reuse your h1 gradient colors but make it smaller */
+    font-size: 1.5em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #555;
+    /* Reset gradient for h3 if needed, or define a new style */
+    color: #f8f9fa; /* Use a light color for visibility */
+    text-align: center;
+}
+
+.tracklist ol {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.tracklist li {
+    padding: 5px 0;
+}
+
+.tracklist a {
+    /* Style the clickable song titles */
+    text-decoration: none;
+    color: #b7e4c7; /* Use your light green color for contrast */
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.tracklist a:hover {
+    text-decoration: underline;
+    color: #70e000; /* Bright lime green on hover */
+}
+
+/* Ensure H1 and P tags use your existing styles and positioning */
+#release-detail-content h1 {
+    /* H1 is already styled globally, just ensure it clears the float if necessary */
+    clear: both; 
+    text-align: left; /* Make it align left instead of center */
+    padding-top: 0;
+    margin-bottom: 20px;
+}
+
+#release-detail-content p {
+    /* P is already styled globally (gradient, bold) */
+    text-align: left; /* Ensure the paragraph text is left-aligned */
+    max-width: none; /* Let it fill the width of the main content container */
+    margin: 15px 0;
+    padding: 0;
+}
