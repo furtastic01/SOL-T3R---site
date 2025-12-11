@@ -769,3 +769,80 @@ p {
     padding: 5px 0;
     margin: 15px 0;
 }
+/* --- 12. STICKY FOOTER FIX (Ensures footer stays at bottom of viewport) --- */
+
+/* 1. Set the body to use Flexbox and fill the viewport height */
+body {
+    /* (Ensure your background color is already set elsewhere) */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh;      /* Make the body take up the full screen height */
+    margin: 0;              /* Remove any default margin */
+    padding: 0;
+}
+
+/* 2. Make the content wrapper push the footer down */
+#page-content-wrapper {
+    flex-grow: 1; /* This tells the wrapper to expand and take up all available space */
+}
+/* --- 12. STICKY FOOTER FIX (Ensures footer stays at bottom of viewport) --- */
+
+/* 1. Reset Body to use Flexbox and fill the viewport height */
+body {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh;      /* Makes the body fill the viewport */
+    margin: 0;              /* Remove default margin */
+    padding: 0;             /* Remove default padding */
+}
+
+/* 2. Make the content wrapper push the footer down */
+#page-content-wrapper {
+    flex-grow: 1; /* This tells the content to take up all available space, pushing the footer down */
+}
+
+
+/* --- 13. Site Footer Styling --- */
+
+#main-footer {
+    width: 100%;
+    background-color: #0e1e3b; /* A dark color for the footer background */
+    padding: 20px 0;
+    text-align: center;
+    border-top: 2px solid #dfb718; /* A thin yellow line above the footer */
+    margin-top: 40px; /* Space between the main content and the footer */
+}
+
+.footer-text {
+    /* Override global gradient P styling for simple white text */
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #cccccc; 
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    text-align: center;
+    max-width: none;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.social-links a {
+    /* Style for the social links */
+    color: #fce899; /* Use a prominent yellow for links */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0 10px;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: #ffffff;
+}
+
+.social-links span {
+    /* Style for the separator */
+    color: #777777;
+    font-size: 1em;
+}
