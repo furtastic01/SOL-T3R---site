@@ -1,9 +1,14 @@
-/* --- 1. Banner CSS (Continued from previous response) --- */
+/* --- 1. Global Body Reset & Background Color --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0e3c99; /* Your specific dark blue background */
+}
 
+/* --- 1. Banner CSS --- */
 #banner-container {
     width: 100%;
     height: 0; 
-    /* 10% padding-bottom for the 10:1 ratio */
     padding-bottom: 10%; 
     position: relative; 
     margin: 0;
@@ -16,122 +21,101 @@
     width: 100%;
     height: 100%;
     object-fit: fill; 
+    display: block;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-}
-
-/* --- 2. Navigation Bar CSS (New Section) --- */
-
+/* --- 2. Navigation Bar CSS (Your updated color is maintained) --- */
 #main-nav {
-    /* The slightly darker but still light yellow color */
-    background-color: #dfb718; /* A light, warm, slightly deeper yellow */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Ensure no margin is inherited */
-    width: 100%; /* Make sure it spans the full width */
+    background-color: #dfb718; /* Your specific dark yellow color */
+    padding: 0; 
+    margin: 0; 
+    width: 100%; 
 }
 
 #main-nav ul {
-    /* Use Flexbox on the <ul> to distribute the space */
     display: flex; 
-    
-    /* Crucial: Distribute the space EVENLY between all children (the <li>s) */
     justify-content: space-around; 
-    
-    /* Remove the default bullet points */
     list-style: none; 
-    
-    /* Remove default list padding and margin */
     padding: 0;
     margin: 0;
 }
 
 #main-nav li {
-    /* Allow list items to grow to fill available space */
     flex-grow: 1; 
-    
-    /* Center the text/link within each list item */
     text-align: center;
-    
-    /* Give a little vertical spacing to the bar */
     padding: 10px 0;
-    
-    /* Optional: Add a subtle separator line if desired */
     border-right: 1px solid #e3b213; 
 }
 
-/* Remove the border from the very last item */
 #main-nav li:last-child {
     border-right: none;
 }
 
 #main-nav a {
-    /* Style the actual link text */
-    text-decoration: none; /* Remove underline */
-    color: #333333;      /* Dark text color */
-    font-weight: bold;   /* Make the links stand out */
-    display: block;      /* Make the entire list item area clickable */
-    padding: 5px 0;      /* Add a little padding to the clickable area */
+    text-decoration: none; 
+    color: #333333;      
+    font-weight: bold;   
+    display: block;      
+    padding: 5px 0;      
 }
 
-/* Hover effect for a nice touch */
 #main-nav a:hover {
-    background-color: #fad039; /* Slightly darker yellow on hover */
+    background-color: #fad039; 
     color: #000000;
 }
-body {
-    background-color: #0e3c99; /* Replace #1a2a4a with your specific dark blue hex code */
-}
-/* Styling for the main heading text (h1) */
+
+/* --- 3. H1 Gradient Text Style (Global) --- */
 h1 {
-    /* Step 1: Set the background to the gradient */
     background: linear-gradient(to right, #ffffff, #5ac8fa);
-    
-    /* Step 2: Clip the background to the text itself (standard property) */
     -webkit-background-clip: text; 
-    
-    /* Step 3: Clip the background to the text itself (for broader compatibility) */
     background-clip: text; 
-    
-    /* Step 4: Make the actual text transparent so the gradient shows through */
     color: transparent; 
-    
-    /* Optional: Ensure the text is large and visible */
     font-size: 3em; 
     font-weight: bold;
-    text-align: center; /* Center the heading on the page */
-    padding-top: 5px; /* Add some space below the navigation bar */
+    text-align: center; /* Global centering is correct */
+    padding-top: 5px; 
 }
-/* Styling for the paragraph text (p) */
+
+/* --- 4. P Gradient Text Style (Global) --- */
 p {
-    /* Step 1: Set the background to the three-color gradient */
     background: linear-gradient(to right, #b7e4c7, #70e000, #f8f9fa);
-    
-    /* Step 2: Clip the background to the text itself */
     -webkit-background-clip: text; 
     background-clip: text; 
-    
-    /* Step 3: Make the actual text transparent so the gradient shows through */
     color: transparent; 
-    
-    /* Optional: Center the paragraph text */
     text-align: center;
-    
-    /* Make the text slightly larger than default for visibility */
     font-size: 1.6em;
-    
-    /* This adds a little bit of vertical padding/space between the h1 and the p tag */
     padding: 10px 20px 20px 20px; 
-    
-    /* Optional: Set a max width so the paragraph doesn't stretch too wide */
     max-width: 800px; 
-    margin-left: auto; /* Centers the paragraph block */
+    margin-left: auto; /* Centers the block */
     margin-right: auto;
     font-weight: bold;
 }
-/* --- New/Revised CSS for the Releases Page Layout --- */
+
+/* --- FIX FOR HOMEPAGE CENTERING APPLIED HERE --- */
+
+#homepage-content {
+    /* Centers the main content area itself */
+    max-width: 1000px;
+    margin: 0 auto; 
+    padding: 0 20px 40px 20px;
+}
+
+#featured-blocks {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 30px; 
+    flex-wrap: wrap; 
+    
+    /* CRUCIAL FIX: Centers the entire two-column block */
+    max-width: 700px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+/* --- END OF HOMEPAGE FIX --- */
+
+
+/* --- 5. Releases Page Grid Layout --- */
 
 #releases-grid {
     display: flex;
@@ -142,156 +126,646 @@ p {
 }
 
 .release-item {
-    /* Set the width of the whole item. This controls how many fit on one line. 
-     * Setting this to 300px ensures plenty of room for 2-3 items on a desktop,
-     * but only one on a small phone screen, fulfilling your requirement. */
     width: 300px; 
-    
-    /* Center the contents within the item */
     text-align: center;
-    
-    /* Margin around the item for visual separation */
     margin: 20px; 
-    
-    /* Add a border around the entire release-item (image + text) */
-    border: 1px solid #e0c878; /* A subtle, complementary border color */
-    padding: 15px; /* Padding inside the border */
-    border-radius: 5px; /* Rounded corners for the border */
+    border: 1px solid #e0c878; 
+    padding: 15px; 
+    border-radius: 5px; 
 }
 
-/* This targets the <a> tag which contains the image */
 .release-item a {
-    /* Display as a block to force the container to take the full width */
     display: block;
-    
-    /* Crucial for square image sizing: 
-     * We use the padding-bottom trick to create a container that is always a square. 
-     * Height is 0, padding-bottom is 100% of the width. */
     height: 0;
-    padding-bottom: 100%;
-    position: relative; /* Allows the image to be absolutely positioned inside */
+    padding-bottom: 100%; /* 1:1 ratio */
+    position: relative; 
 }
 
 .release-item img {
-    /* The image must fill the entire square container created by the <a> tag */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%; 
     height: 100%; 
-    
-    /* Crucial: object-fit makes the image fill the square container.
-     * 'cover' ensures the image covers the entire area without distortion,
-     * cropping any excess parts of the original image. 
-     * Use 'contain' if you want the whole image visible, with bars if necessary.
-     * I recommend 'cover' for a clean look. */
     object-fit: cover; 
-    
-    /* Remove the border property from the previous code if you had it here */
     border: none; 
     border-radius: 0;
     transition: transform 0.2s;
 }
 
-/* Updated paragraph styling to ensure it looks clean below the image */
 .release-item p {
-    /* Reuse your existing p tag styles (gradient, bold) but adjust layout */
     font-size: 1.1em;
     font-weight: bold; 
     text-align: center; 
     max-width: none; 
-    
-    /* Add a little space between the image border and the text */
     margin: 10px 0 0 0; 
     padding: 5px 0 0 0; 
 }
-/* --- New CSS for Individual Release Detail Pages (release-1.html) --- */
+
+/* --- 6. Release Detail Page (Wikipedia-Style Layout) --- */
 
 #release-detail-content {
-    /* Set max width and center the main content area */
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
 
 #release-info {
-    /* KEY: Float the box to the right */
     float: right; 
-    
-    /* Set a specific width for the info box */
     width: 300px; 
-    
-    /* Add space around the box so the text doesn't touch it */
     margin: 0 0 20px 20px;
-    
-    /* Optional: Add a subtle border or background to make the box stand out */
     border: 1px solid #e0c878;
     padding: 15px;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.05); /* Very slight translucent background */
-    text-align: center; /* Center the image and tracklist */
+    background-color: rgba(255, 255, 255, 0.05); 
+    text-align: center; 
 }
 
 #release-info img {
-    /* Make the image fill the width of the info box */
     width: 100%;
     height: auto;
     display: block;
     margin-bottom: 10px;
-    border: 1px solid #fce899; /* Use your yellow color */
+    border: 1px solid #fce899; 
 }
 
-/* Tracklist Styling */
-.tracklist {
-    text-align: left; /* Align text within the tracklist */
-    padding: 10px 0;
+.tracklist-ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
 }
 
-.tracklist h3 {
-    /* Reuse your h1 gradient colors but make it smaller */
-    font-size: 1.5em;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #555;
-    /* Reset gradient for h3 if needed, or define a new style */
-    color: #f8f9fa; /* Use a light color for visibility */
-    text-align: center;
-}
-
-.tracklist ol {
-    padding-left: 20px;
-    margin: 10px 0;
-}
-
-.tracklist li {
+.tracklist-ul li {
     padding: 5px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2); 
 }
 
-.tracklist a {
-    /* Style the clickable song titles */
+.tracklist-ul li:last-child {
+    border-bottom: none;
+}
+
+.tracklist-ul a {
+    display: block; 
     text-decoration: none;
-    color: #b7e4c7; /* Use your light green color for contrast */
-    font-weight: normal;
-    font-size: 1em;
 }
 
-.tracklist a:hover {
-    text-decoration: underline;
-    color: #70e000; /* Bright lime green on hover */
+.tracklist-ul p {
+    text-align: center;
+    max-width: none; 
+    margin: 0; 
+    padding: 0; 
 }
 
-/* Ensure H1 and P tags use your existing styles and positioning */
 #release-detail-content h1 {
-    /* H1 is already styled globally, just ensure it clears the float if necessary */
-    clear: both; 
-    text-align: left; /* Make it align left instead of center */
+    text-align: left; 
     padding-top: 0;
     margin-bottom: 20px;
 }
 
 #release-detail-content p {
-    /* P is already styled globally (gradient, bold) */
-    text-align: left; /* Ensure the paragraph text is left-aligned */
-    max-width: none; /* Let it fill the width of the main content container */
+    text-align: left; 
+    max-width: none; 
     margin: 15px 0;
     padding: 0;
+}
+
+/* --- 7. Gallery Page Slideshow & Grid --- */
+
+#slideshow-wrapper {
+    max-width: 900px; 
+    margin: 20px auto;
+    border: 2px solid #e0c878; 
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#slideshow-container {
+    display: flex;
+    justify-content: space-around; 
+    position: relative;
+}
+
+.slideshow {
+    width: 48%; 
+    position: relative;
+    height: 0;
+    padding-bottom: 48%; 
+    overflow: hidden; 
+}
+
+.slide-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: #fce899; 
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 600px) {
+    #slideshow-container {
+        flex-direction: column;
+        align-items: center; 
+    }
+    
+    .slideshow {
+        width: 90%; 
+        padding-bottom: 90%; 
+        margin-bottom: 20px; 
+    }
+    
+    .prev, .next {
+        padding: 10px;
+    }
+}
+
+.gallery-heading {
+    font-size: 2em; 
+    text-align: center;
+    color: #f8f9fa; 
+    margin: 40px 0 20px 0;
+}
+
+#gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    max-width: 940px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gallery-item {
+    flex-basis: 30%; 
+    padding: 15px 0;
+    margin-bottom: 20px;
+    border: 1px solid #555555; 
+    border-radius: 3px;
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 90%; 
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-item {
+        flex-basis: 48%; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-item {
+        flex-basis: 100%; 
+    }
+}
+
+/* --- 8. About Page Layout --- */
+
+#about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#pfp-box {
+    float: right; 
+    width: 200px; 
+    margin: 0 0 20px 25px;
+    border: 1px solid #e0c878;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.pfp-image-container {
+    height: 0;
+    padding-bottom: 100%; 
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+#pfp-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+    border-radius: 3px; 
+}
+
+.pfp-caption {
+    font-size: 1em;
+    font-weight: normal;
+    color: #f8f9fa; 
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    text-align: center;
+    max-width: none;
+    margin: 5px 0 0 0;
+    padding: 0;
+}
+
+#about-content h1 {
+    text-align: left;
+    padding-top: 0;
+    margin-bottom: 20px;
+}
+
+#about-content p {
+    text-align: left; 
+    max-width: none; 
+    margin: 15px 0;
+    padding: 0;
+}
+
+/* --- 9. Homepage Featured Blocks Styling --- */
+
+.feature-box {
+    flex-basis: calc(50% - 15px); 
+    border: 1px solid #555555; 
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2); 
+    text-align: center;
+}
+
+.feature-box h2 {
+    background: linear-gradient(to right, #ffffff, #5ac8fa);
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    font-size: 2em; 
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.feature-box p.quote {
+    font-size: 1.1em;
+    padding: 0 10px;
+    margin: 10px 0 20px 0;
+}
+
+.release-item-small {
+    width: 200px; 
+    height: 0;
+    padding-bottom: 200px; 
+    position: relative;
+    margin: 0 auto 15px auto;
+}
+
+.release-item-small img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid #fce899; 
+}
+
+.small-text {
+    font-weight: normal;
+    color: #f8f9fa;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    text-align: center;
+    max-width: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fce899; 
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #f8db6f;
+}
+
+@media screen and (max-width: 650px) {
+    .feature-box {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+}
+/* --- 10. Site Footer Styling --- */
+
+#main-footer {
+    width: 100%;
+    /* Use a dark color for the footer background */
+    background-color: #0e1e3b; 
+    padding: 20px 0;
+    text-align: center;
+    border-top: 2px solid #dfb718; /* A thin yellow line above the footer */
+    margin-top: 40px; /* Space between the main content and the footer */
+}
+
+.footer-text {
+    /* Override global gradient P styling for simple white text */
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #cccccc; 
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    text-align: center;
+    max-width: none;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.social-links a {
+    /* Style for the social links */
+    color: #fce899; /* Use a prominent yellow for links */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0 10px;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: #ffffff;
+}
+
+.social-links span {
+    /* Style for the separator */
+    color: #777777;
+    font-size: 1em;
+}
+/* --- CRITICAL FINAL FIX: Center Homepage Content --- */
+
+/* 1. Target the H1 and force center alignment */
+#homepage-content h1 {
+    text-align: center !important; 
+    /* The !important flag overrides almost everything */
+}
+
+/* 2. Target the main P tag and ensure margins are auto for centering */
+#homepage-content p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 3. Target the featured blocks section to ensure it centers */
+#featured-blocks {
+    /* We already set max-width and margin: auto; but let's confirm here */
+    margin: 40px auto 0 auto !important;
+}
+/* --- ABSOLUTE FINAL CENTERING FIX --- */
+.center-me-all {
+    /* Use CSS Grid for the most reliable centering available */
+    display: grid; 
+    /* The single column grid aligns all the content pieces (h1, p, section) */
+    grid-template-columns: 1fr; 
+    /* Place the items in the center of the available space */
+    justify-items: center; 
+}
+#homepage-content {
+    /* Set a standard size for the content area */
+    width: 90%; 
+    max-width: 1000px;
+    padding: 0 20px 40px 20px;
+    
+    /* CRITICAL FIX: Absolute positioning to force center */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* This ensures the content doesn't collide with the banner/nav */
+    top: 200px; /* Adjust this number (e.g., 200px) based on how tall your banner and nav bar are */
+}
+/* --- 9. Homepage Featured Blocks Styling (Safe Centering Method) --- */
+
+#homepage-content {
+    /* Safe container setup */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+}
+
+#featured-blocks {
+    /* Use margin: auto for centering the entire block */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 30px; 
+    flex-wrap: wrap; 
+    
+    /* SAFE CENTERING FIX: Set a width and center it */
+    max-width: 700px; /* Adjust this width if you want the boxes wider/narrower */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-box {
+    /* Each box takes slightly less than 50% to leave room for the gap */
+    flex-basis: calc(50% - 15px); 
+    border: 1px solid #555555; 
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2); 
+    text-align: center;
+}
+
+.feature-box h2 {
+    background: linear-gradient(to right, #ffffff, #5ac8fa);
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    font-size: 2em; 
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.feature-box p.quote {
+    font-size: 1.1em;
+    padding: 0 10px;
+    margin: 10px 0 20px 0;
+}
+
+/* Reusing 1:1 Aspect Ratio Box for the featured cover art */
+.release-item-small {
+    width: 200px; 
+    height: 0;
+    padding-bottom: 200px; 
+    position: relative;
+    margin: 0 auto 15px auto;
+}
+
+.release-item-small img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid #fce899; 
+}
+
+.small-text {
+    font-weight: normal;
+    color: #f8f9fa;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    text-align: center;
+    max-width: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fce899; 
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #f8db6f;
+}
+
+@media screen and (max-width: 650px) {
+    .feature-box {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* --- 10. Site Footer Styling --- */
+
+#main-footer {
+    width: 100%;
+    background-color: #0e1e3b; 
+    padding: 20px 0;
+    text-align: center;
+    border-top: 2px solid #dfb718; 
+    margin-top: 40px; 
+}
+
+.footer-text {
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #cccccc; 
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    text-align: center;
+    max-width: none;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.social-links a {
+    color: #fce899; 
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0 10px;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: #ffffff;
+}
+
+.social-links span {
+    color: #777777;
+    font-size: 1em;
+}
+/* --- 11. Coming Soon Page Styling --- */
+
+#coming-soon-content {
+    /* Set a reasonable width for the content and center the container */
+    max-width: 600px;
+    margin: 60px auto; /* Adds space above and below the box */
+    text-align: center;
+    padding: 20px;
+}
+
+.message-box {
+    /* Styles for the box itself */
+    border: 3px solid #fce899; /* Your signature yellow border */
+    padding: 40px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle dark background */
+}
+
+/* Ensure the H1 and P inside the box look correct */
+.message-box h1 {
+    font-size: 2.5em;
+    padding-top: 0;
+    margin-bottom: 20px;
+}
+
+.message-box p {
+    font-size: 1.2em;
+    max-width: none;
+    padding: 5px 0;
+    margin: 15px 0;
 }

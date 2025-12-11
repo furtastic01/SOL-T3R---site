@@ -3,6 +3,7 @@
 <head>
     <title>gallery</title>
     <link rel="stylesheet" href="styles.css"> </head>
+    <link rel="icon" type="image/png" href="images/favicon.png">
 <body>
     
     <div id="banner-container">
@@ -17,7 +18,79 @@
             <li><a href="gallery.html">Gallery</a></li>
             </ul>
     </nav>
-    
-    <h1>cover-art</h1>
+    <main id="gallery-content">
+        
+        <h1>Featured Art Slideshow</h1>
+
+        <div id="slideshow-wrapper">
+            
+            <div id="slideshow-container">
+                
+                <div class="slideshow" id="slideshow-left">
+                    <div class="slide-images">
+                        <div class="slide fade"><img src="images/release-cover-1.png" alt="WayzOfWind.flac"></div>
+                        <div class="slide fade"><img src="idk.png" alt="Art 2 L"></div>
+                        <div class="slide fade"><img src="images/idkV2.png" alt="TRIMESTER"></div>
+                        </div>
+                </div>
+                
+                <div class="slideshow" id="slideshow-right">
+                    <div class="slide-images">
+                        <div class="slide fade"><img src="images/idk.png" alt="CoolioRetro"></div>
+                        <div class="slide fade"><img src="images/art-R-2.png" alt="Art 2 R"></div>
+                        <div class="slide fade"><img src="images/art-R-3.png" alt="Art 3 R"></div>
+                        </div>
+                </div>
+                
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                
+            </div>
+        </div>
+        
+        <h2 class="gallery-heading">Full Gallery</h2>
+        <div id="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/release-cover-1.png" alt="WayzOfWind.flac">
+                <p>WayzOfWind.flac</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/idk.png" alt="CoolioRetro">
+                <p>CoolioRetro</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/idkV2.png" alt="TRIMESTER">
+                <p>TRIMESTER</p>
+            </div>
+                        <div class="gallery-item">
+                <img src="images/art-D.png" alt="Art A">
+                <p>Art Title A</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/art-E.png" alt="Art B">
+                <p>Art Title B</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/art-F.png" alt="Art C">
+                <p>Art Title C</p>
+            </div>
+            </div>
+
+    </main>
+
+    <footer id="main-footer">
+        <p class="footer-text">
+            &copy; 2025 SOL!T3R. All Rights Reserved. | Site designed and coded by SOL!T3R.
+        </p>
+        <div class="social-links">
+            <a href="#" target="_blank">Spotify</a>
+            <span>|</span>
+            <a href="#" target="_blank">Bandcamp</a>
+            <span>|</span>
+            <a href="#" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="gallery.js"></script>
     </body>
 </html>
